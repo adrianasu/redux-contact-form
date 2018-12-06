@@ -68,7 +68,7 @@ export class ContactForm extends React.Component {
         }
 
         return (
-            <form
+            <form   // props.handleSubmit is a Redux Form callback function
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
@@ -113,7 +113,7 @@ export class ContactForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'contact',
+    form: 'contact',  // the info will be in state.form.contact
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('contact', Object.keys(errors)[0]))
 })(ContactForm);
